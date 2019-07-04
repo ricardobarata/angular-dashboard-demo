@@ -1,0 +1,5 @@
+<gridster [options]="options" class="main-content-component" [ngClass]="theme">
+  <gridster-item [item]="widget" *ngFor="let widget of widgets">
+    <app-dynamic-widget [widgetItem]="widget"></app-dynamic-widget>
+  </gridster-item>
+</gridster>

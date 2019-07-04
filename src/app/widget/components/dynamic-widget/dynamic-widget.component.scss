@@ -1,0 +1,17 @@
+.card {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .gridster-item-content {
+    height: 100%;
+    overflow: auto;
+    .card-block {
+      height: 100%;
+      padding: 0;
+    }
+  }
+  .draggable-cursor {
+    cursor: move;
+  }
+}

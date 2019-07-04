@@ -1,0 +1,64 @@
+<div class="alert alert-app-level alert-info" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
+      </div>
+      <div class="alert-text">
+        A new update is now available. Upgrade to v.1234.
+      </div>
+      <div class="alert-actions">
+        <button class="btn alert-action" (click)="modal.onOpen()">
+          Install Update
+        </button>
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="modal.onOpen()"
+  >
+    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+  </button>
+</div>
+<header class="header-6">
+  <div class="branding">
+    <a class="nav-link">
+      <clr-icon shape="vm-bug"></clr-icon>
+      <span class="title">Dashboard Demo</span>
+    </a>
+  </div>
+  <div class="header-nav">
+    <a class="nav-link nav-icon" (click)="modal.onOpen()">
+      <clr-icon shape="cloud"></clr-icon>
+    </a>
+    <a class="active nav-link nav-icon" (click)="modal.onOpen()">
+      <clr-icon shape="folder"></clr-icon>
+    </a>
+  </div>
+  <div class="header-actions">
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger>
+        <clr-icon shape="cog"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a clrDropdownItem (click)="onLightTheme()">Light Theme</a>
+        <a clrDropdownItem (click)="onDarkTheme()">Dark Theme</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger>
+        <clr-icon shape="user"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a clrDropdownItem (click)="modal.onOpen()">About</a>
+        <a clrDropdownItem (click)="modal.onOpen()">Log out</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</header>
+<app-modal></app-modal>

@@ -1,0 +1,26 @@
+app-main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-content-component {
+  &.dark {
+    background-color: #5e4f54;
+  }
+  &.light {
+    background-color: grey;
+  }
+  .gridster-column {
+    border-left-color: rgba($color: white, $alpha: 0.3);
+    border-right-color: rgba($color: white, $alpha: 0.3);
+  }
+  .gridster-row {
+    border-bottom-color: rgba($color: white, $alpha: 0.3);
+    border-top-color: rgba($color: white, $alpha: 0.3);
+  }
+
+  gridster-item {
+    background-color: transparent;
+  }
+}
