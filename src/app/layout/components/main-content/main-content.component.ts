@@ -11,8 +11,8 @@ import {
   GridsterItemComponentInterface
 } from "angular-gridster2";
 import { Subscription } from "rxjs";
-import { CoreState } from "src/app/core/store/reducers";
-import { getThemeSelector } from "src/app/core/store/selectors/theme.selector";
+import { AppState } from "src/app/core/store/reducers";
+import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
 import { WidgetType } from "src/app/widget/models/widget.model";
 import { WidgetItem } from "../../models/widget.model";
 import {
@@ -34,11 +34,11 @@ export class MainContentComponent implements OnInit, OnDestroy {
 
   private themeSubscription: Subscription;
 
-  constructor(private store: Store<CoreState>) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.themeSubscription = this.store
-      .pipe(select(getThemeSelector))
+      .pipe(select(getThemeType))
       .subscribe((theme: string) => {
         this.theme = theme === "Dark" ? "dark" : "light";
       });

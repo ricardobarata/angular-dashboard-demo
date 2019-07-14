@@ -2,8 +2,8 @@ import { Component, ViewEncapsulation } from "@angular/core";
 import { Actions, ofType } from "@ngrx/effects";
 import { select, Store } from "@ngrx/store";
 import { Subscription } from "rxjs";
-import { CoreState } from "src/app/core/store/reducers";
-import { getThemeSelector } from "src/app/core/store/selectors/theme.selector";
+import { AppState } from "src/app/core/store/reducers";
+import { getThemeType } from "src/app/core/store/reducers/theme.reducer";
 import {
   LayoutActionTypes,
   TableWidgetResized,
@@ -26,11 +26,11 @@ export class DataTableComponent {
   private widgetResizeSubscription: Subscription;
   private windowResizeSubscription: Subscription;
 
-  constructor(private store: Store<CoreState>, private action$: Actions) {}
+  constructor(private store: Store<AppState>, private action$: Actions) {}
 
   ngOnInit(): void {
     this.themeSubscription = this.store
-      .pipe(select(getThemeSelector))
+      .pipe(select(getThemeType))
       .subscribe((theme: string) => {
         this.theme = theme === "Dark" ? "dark" : "material";
       });

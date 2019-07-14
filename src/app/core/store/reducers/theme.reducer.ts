@@ -1,7 +1,15 @@
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { ThemeActions, ThemeActionTypes } from "../actions/theme.actions";
-import { initialThemeState, ThemeState } from "../states/theme.state";
 
-export function reducer(
+export interface ThemeState {
+  theme: string;
+}
+
+const initialThemeState: ThemeState = {
+  theme: "Light"
+};
+
+export function ThemeReducer(
   state = initialThemeState,
   action: ThemeActions
 ): ThemeState {
@@ -22,4 +30,9 @@ export function reducer(
   }
 }
 
-export const getTheme = (state: ThemeState) => state && state.theme;
+const selectFeature = createFeatureSelector<ThemeState>("themeFeature");
+
+export const getThemeType = createSelector(
+  selectFeature,
+  (state: ThemeState) => state && state.theme
+);

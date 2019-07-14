@@ -1,22 +1,13 @@
-import { ActionReducer, ActionReducerMap, MetaReducer } from "@ngrx/store";
-import { environment } from "src/environments/environment";
-import * as fromState from "../states/theme.state";
-import * as fromReducer from "./theme.reducer";
+import { ActionReducerMap } from "@ngrx/store";
+import {
+  ThemeReducer,
+  ThemeState
+} from "src/app/core/store/reducers/theme.reducer";
 
-export interface CoreState {
-  themeFeature: fromState.ThemeState;
+export interface AppState {
+  themeFeature: ThemeState;
 }
 
-export const reducers: ActionReducerMap<CoreState> = {
-  themeFeature: fromReducer.reducer
+export const reducers: ActionReducerMap<AppState> = {
+  themeFeature: ThemeReducer
 };
-
-function logger(reducer: ActionReducer<CoreState>): ActionReducer<CoreState> {
-  return function(state: CoreState, action: any): CoreState {
-    return reducer(state, action);
-  };
-}
-
-export const metaReducers: MetaReducer<CoreState>[] = !environment.production
-  ? [logger]
-  : [];

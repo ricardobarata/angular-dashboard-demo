@@ -4,10 +4,10 @@ import { RouterModule } from "@angular/router";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { reducers } from "src/app/core/store/reducers";
 import { environment } from "src/environments/environment";
 import { AppComponent } from "./app.component";
 import { appRoutes } from "./app.routes";
-import { metaReducers, reducers } from "./core/store/reducers";
 import { LayoutModule } from "./layout/layout.module";
 
 @NgModule({
@@ -17,7 +17,6 @@ import { LayoutModule } from "./layout/layout.module";
     LayoutModule,
     RouterModule.forRoot(appRoutes),
     StoreModule.forRoot(reducers, {
-      metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
